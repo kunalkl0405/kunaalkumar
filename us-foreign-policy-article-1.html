@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Signalling and the Burden of Credibility in U.S. Foreign Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d1117;
+    --surface: #141a22;
+    --paper: #f0ece4;
+    --steel: #1e2a38;
+    --accent: #c8922a;
+    --red: #b03030;
+    --muted: #8a9bb0;
+    --text-dark: #0d1117;
+    --rule: #2a3a4e;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--bg);
+    padding: 64px 40px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--accent));
+  }
+
+  .topic-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topic-tag::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  h1.headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+    margin-bottom: 20px;
+  }
+
+  .subtitle-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 680px;
+    margin-bottom: 36px;
+    padding-left: 16px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .byline-strip {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0;
+  }
+  .byline-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .byline-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--paper);
+  }
+
+  /* ── STAT BAND ── */
+  .stat-band {
+    background: var(--steel);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-band-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    divide-x: 1px solid var(--rule);
+  }
+  .stat-cell {
+    padding: 32px 36px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+  .stat-desc {
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+
+  /* ── ARTICLE ── */
+  .article-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 56px;
+    padding: 60px 40px 80px;
+    align-items: start;
+  }
+
+  .body-text p {
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: rgba(240,236,228,0.85);
+    margin-bottom: 1.6em;
+    font-weight: 300;
+  }
+
+  .body-text p:first-of-type::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    float: left;
+    line-height: 0.82;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+
+  .section-head {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--paper);
+    margin: 2.4em 0 0.8em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .pull-quote {
+    background: var(--steel);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--paper) !important;
+    margin: 0 !important;
+  }
+  .pull-quote p::first-letter { all: unset; }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .s-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 22px;
+  }
+  .s-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .s-card p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .s-fact {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* bar */
+  .s-bar-item { margin-bottom: 12px; }
+  .s-bar-label {
+    font-size: 0.7rem;
+    color: rgba(240,236,228,0.6);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .s-bar-track { height: 4px; background: var(--rule); }
+  .s-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 1.2s cubic-bezier(0.25,1,0.5,1);
+  }
+  .s-bar-fill.red { background: var(--red); }
+
+  /* ── CLOSING ── */
+  .closing {
+    background: var(--steel);
+    border-top: 1px solid var(--rule);
+  }
+  .closing-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .closing-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 auto 28px;
+  }
+  .closing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--paper);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.65s ease both; }
+  .hero > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero > *:nth-child(2) { animation-delay: 0.22s; }
+  .hero > *:nth-child(3) { animation-delay: 0.34s; }
+  .hero > *:nth-child(4) { animation-delay: 0.46s; }
+  .hero > *:nth-child(5) { animation-delay: 0.58s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .hero { padding: 44px 22px 0; }
+    .stat-band-inner { grid-template-columns: 1fr; }
+    .stat-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+    .stat-cell:last-child { border-bottom: none; }
+    .article-wrap { grid-template-columns: 1fr; padding: 40px 22px 60px; gap: 36px; }
+    .sidebar { position: static; }
+    .closing-inner { padding: 44px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+
+  <h1 class="headline">Strategic Signalling and the Burden of Credibility in U.S. Foreign Policy</h1>
+  <p class="subtitle-line">When strategic ambiguity slips into inconsistency, the costs are borne far beyond Washington</p>
+  <div class="byline-strip">
+    <div>
+      <div class="byline-label">Written by</div>
+      <div class="byline-name">Kunal Kumar</div>
+    </div>
+  </div>
+</div>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-cell">
+      <span class="stat-num">10,000</span>
+      <div class="stat-desc">U.S. personnel currently deployed, supported by warships and surveillance systems enforcing a naval blockade</div>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">20%</span>
+      <div class="stat-desc">Of global oil trade passes through the Strait of Hormuz — nearly 20 million barrels per day</div>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">$2.7T</span>
+      <div class="stat-desc">Global military expenditure reached this level amid sustained geopolitical uncertainty — SIPRI</div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE + SIDEBAR -->
+<div class="article-wrap">
+  <main class="body-text">
+
+    <p>Recent developments in the United States' approach toward Iran have once again underscored a recurring concern in international relations: the necessity of coherence between political signalling and policy action. At a moment of heightened tensions in West Asia, the widening gap between declaratory statements and material posture risks complicating both diplomacy and deterrence.</p>
+
+    <p>Since the escalation of conflict following the February 2026 strikes on Iran, the United States has projected a dual narrative — public assertions indicating the possibility of de-escalation alongside a sustained and, in some respects, expanding military posture. Approximately 10,000 U.S. personnel, supported by multiple warships and surveillance systems, are currently engaged in enforcing a naval blockade targeting Iranian-linked shipping. At the same time, official statements have suggested that the conflict is nearing resolution. Such divergence, while not unprecedented in statecraft, raises important questions about the calibration of strategic communication.</p>
+
+    <h2 class="section-head">Ambiguity and Its Limits</h2>
+
+    <p>In classical strategic thought, ambiguity is a recognised instrument of power. By maintaining a degree of unpredictability, states seek to deter adversaries and enhance bargaining leverage. Yet, ambiguity derives its effectiveness from credibility. When signalling appears inconsistent rather than deliberately calibrated, it generates uncertainty not only among adversaries but also among allies and neutral observers.</p>
+
+    <div class="pull-quote">
+      <p>When signalling appears inconsistent rather than deliberately calibrated, it generates uncertainty not only among adversaries but also among allies and neutral observers.</p>
+    </div>
+
+    <h2 class="section-head">The Strait of Hormuz</h2>
+
+    <p>The Strait of Hormuz remains central to this dynamic. Handling roughly 20% of global oil trade — nearly 20 million barrels per day — the strait is among the most critical energy chokepoints in the world. Recent disruptions have been severe: shipping traffic has reportedly declined sharply, with some estimates suggesting reductions of over 90% during peak tensions, while insurance costs for tankers have increased multiple times within days of escalation. In such a context, even limited threats to navigation translate into global economic consequences, including price volatility and heightened supply uncertainty.</p>
+
+    <h2 class="section-head">Military Posture and Systemic Risk</h2>
+
+    <p>Military indicators further reinforce the scale of engagement. Open-source assessments indicate that a substantial proportion of U.S. strategic assets have been deployed in the region, including multiple aircraft carriers and significant shares of bomber and surveillance fleets. Such deployments signal preparedness for escalation, even as diplomatic channels remain formally open.</p>
+
+    <p>Broader trends in global security reinforce the systemic implications of such signalling. According to SIPRI data, global military expenditure reached approximately $2.7 trillion in recent years. When a leading global power projects mixed signals, other states are incentivised to prepare for worst-case scenarios, often accelerating arms spending and strategic hedging.</p>
+
+    <h2 class="section-head">Regional and Domestic Dimensions</h2>
+
+    <p>The implications extend beyond the immediate U.S.–Iran dynamic. Regional actors in West Asia have recalibrated their security postures, while major powers such as China and Russia have sought to expand diplomatic engagement in the region. In South Asia, where tensions remain structurally sensitive, shifts in the broader geopolitical environment introduce additional layers of uncertainty.</p>
+
+    <p>It is, however, necessary to acknowledge the role of domestic political considerations in shaping foreign policy articulation. Leadership styles, electoral incentives, and institutional pressures often influence the tone and timing of public statements. For a country with the global reach of the United States, the external consequences of such signalling cannot be easily contained. What is intended for domestic audiences may be interpreted internationally as a shift in strategic doctrine.</p>
+
+    <h2 class="section-head">Coherence as Strategy</h2>
+
+    <p>A balanced assessment must therefore recognise both the utility of calibrated ambiguity and the risks posed by perceived inconsistency. The challenge lies in ensuring that signalling — whether assertive or conciliatory — remains anchored in a coherent and credible policy framework. Without such coherence, communication itself risks becoming a source of instability rather than an instrument of control.</p>
+
+    <p>In international politics, credibility is not constructed through rhetoric alone, but through the sustained alignment of words and actions. For the United States, whose decisions carry systemic implications, maintaining this alignment is essential not only for effective diplomacy but also for the stability of the broader international order.</p>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="s-card">
+      <div class="s-card-title">Shipping Impact</div>
+      <span class="s-fact">−90%</span>
+      <p>Estimated decline in Hormuz shipping traffic during peak tensions, with tanker insurance costs surging within days.</p>
+    </div>
+
+    <div class="s-card">
+      <div class="s-card-title">U.S. Asset Deployment</div>
+      <div class="s-bar-item">
+        <div class="s-bar-label"><span>Aircraft carriers</span><span>High</span></div>
+        <div class="s-bar-track"><div class="s-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="s-bar-item">
+        <div class="s-bar-label"><span>Bomber fleet</span><span>Significant</span></div>
+        <div class="s-bar-track"><div class="s-bar-fill" style="width:60%"></div></div>
+      </div>
+      <div class="s-bar-item">
+        <div class="s-bar-label"><span>Surveillance systems</span><span>Substantial</span></div>
+        <div class="s-bar-track"><div class="s-bar-fill red" style="width:70%"></div></div>
+      </div>
+    </div>
+
+    <div class="s-card">
+      <div class="s-card-title">Core Argument</div>
+      <p>Credibility is not built through rhetoric alone — it requires sustained alignment between declared positions and material action. Inconsistency between the two destabilises not just adversaries, but allies and the broader international order.</p>
+    </div>
+
+    <div class="s-card">
+      <div class="s-card-title">Regional Actors Watching</div>
+      <p style="margin-bottom:8px;">China & Russia have expanded diplomatic engagement in West Asia, seeking to fill perceived gaps in U.S. strategic reliability.</p>
+      <p>South Asian states are also recalibrating, sensitive to shifts in the broader geopolitical environment.</p>
+    </div>
+
+  </aside>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-rule"></div>
+    <p>Power, to be effective, must be accompanied by clarity. In its absence, even well-intentioned strategies risk being misinterpreted — with consequences that extend far beyond the immediate theatre of conflict.</p>
+  </div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.s-bar-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          requestAnimationFrame(() => setTimeout(() => bar.style.width = w, 80));
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.s-card').forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
