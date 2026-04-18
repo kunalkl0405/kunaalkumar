@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Symphony of Pain</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --ink: #0f0e0b;
+    --paper: #f5f0e8;
+    --saffron: #e07b29;
+    --deep-red: #8b1a1a;
+    --muted: #6b6558;
+    --divider: #c8bfae;
+    --highlight: #fde68a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 📜 Soft texture feel */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.03), transparent),
+                radial-gradient(circle at 80% 80%, rgba(0,0,0,0.03), transparent);
+    z-index: -2;
+}
+
+/* 🟠 Warm mouse light */
+.light {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(224,123,41,0.15), transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+    
+    min-height: 100vh;              /* full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        /* vertical center */
+    align-items: center;            /* horizontal center */
+    text-align: center;
+}
+/* Title */
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--deep-red);
+    margin-bottom: 20px;
+}
+
+/* Divider */
+.divider {
+    width: 80px;
+    height: 2px;
+    background: var(--saffron);
+    margin: 20px auto 50px;
+}
+
+/* Poem */
+#poem {
+    font-size: 1.2rem;
+    line-height: 2.1;
+    color: var(--ink);
+    white-space: pre-line;
+    text-align: center;
+    max-width: 700px;
+}
+/* Highlight effect */
+#poem span {
+    transition: all 0.3s ease;
+}
+
+#poem span:hover {
+    color: var(--saffron);
+    background: rgba(253, 230, 138, 0.3);
+}
+
+/* Footer */
+.author {
+    margin-top: 120px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--deep-red);
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 1.5s ease;
+}
+
+/* visible state */
+.author.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* subtle divider */
+.author::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--divider);
+    margin: 0 auto 15px;
+}
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    .cursor {
+    background: var(--deep-red);
+    opacity: 0.7;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: bottom;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="light" id="light"></div>
+
+<div class="container">
+    <div class="title">A SYMPHONY OF PAIN</div>
+    <div class="divider"></div>
+    <div id="poem"></div><span class="cursor" id="cursor"></span>
+
+   <div class="author" id="author">— Kunal Kumar</div>
+</div>
+
+<!-- 🎵 Music -->
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b6f4f6c.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// 📝 Poem
+const text = `When I grabbed the pen to write my misery,
+The pen cried before my eyes did.
+
+As I clutch the pen with all my might,
+Like my solitude, firm in its flight.
+
+In ink-stained pages, echoes of pain reside,
+Each stroke a tear, each word a sigh inside.
+
+The paper trembles 'neath the weight,
+Of heartache etched in every trait.
+
+In the parchment's embrace, tales unfold,
+A narrative of sorrow, intricate and bold.
+
+In the silent dance of pen and paper,
+A symphony of sorrow, a melancholy caper.
+
+Words bleed like wounds upon the sheet,
+A testament to the pain that we meet.`;
+
+// ✍️ Typewriter with span wrap
+const poemEl = document.getElementById("poem");
+const cursor = document.getElementById("cursor");
+
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        const char = text.charAt(i);
+        poemEl.innerHTML += `<span>${char}</span>`;
+        i++;
+        setTimeout(typeWriter, 18);
+    } else {
+        // remove cursor after typing
+        cursor.style.display = "none";
+
+        // show author after delay
+        setTimeout(() => {
+            document.getElementById("author").classList.add("show");
+        }, 800);
+    }
+}
+
+typeWriter();
+// 🟠 Mouse light
+const light = document.getElementById("light");
+document.addEventListener("mousemove", e => {
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
+});
+
+// 🔊 Music start on click
+document.body.addEventListener('click', () => {
+    document.getElementById("bgMusic").play();
+});
+</script>
+
+</body>
+</html>
