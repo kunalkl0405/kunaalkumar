@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphones: A Useful Tool or a Modern Trap? | The Hindu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hindu-red: #B01C2E;
+    --hindu-dark: #1a1a1a;
+    --hindu-mid: #2c2c2c;
+    --hindu-ink: #1c1c1c;
+    --hindu-muted: #5a5a5a;
+    --hindu-rule: #B01C2E;
+    --hindu-light-rule: #d4c8b0;
+    --bg: #f5f0e8;
+    --column-bg: #faf7f2;
+    --accent-gold: #8a6c2e;
+    --sidebar-bg: #f0ebe0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--hindu-ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ─── MASTHEAD ─────────────────────────────────────── */
+  .masthead {
+    background: var(--column-bg);
+    border-bottom: 3px solid var(--hindu-red);
+    padding: 0;
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 48px;
+    border-bottom: 1px solid var(--hindu-light-rule);
+    font-size: 11.5px;
+    color: var(--hindu-muted);
+    letter-spacing: 0.04em;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .edition-info { font-style: italic; }
+
+  .masthead-main {
+    text-align: center;
+    padding: 18px 48px 14px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--hindu-red);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .logo-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hindu-muted);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .nav-strip {
+    background: var(--hindu-red);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .nav-strip a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 400;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.15s;
+  }
+  .nav-strip a:first-child { border-left: 1px solid rgba(255,255,255,0.2); }
+  .nav-strip a:hover { background: rgba(255,255,255,0.15); }
+  .nav-strip a.active { background: rgba(255,255,255,0.2); font-weight: 600; }
+
+  /* ─── SECTION LABEL ─────────────────────────────────── */
+  /* ─── MAIN LAYOUT ─────────────────────────────────── */
+  .page-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 24px 60px;
+  }
+
+  .article-header {
+    border-bottom: 3px double var(--hindu-ink);
+    padding: 22px 0 24px;
+    margin-bottom: 28px;
+  }
+
+  .kicker {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hindu-red);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  h1.headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--hindu-dark);
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+    max-width: 760px;
+  }
+
+  .deck {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17.5px;
+    font-weight: 300;
+    color: var(--hindu-muted);
+    line-height: 1.55;
+    font-style: italic;
+    max-width: 700px;
+    border-left: 3px solid var(--hindu-red);
+    padding-left: 16px;
+    margin-bottom: 18px;
+  }
+
+  .byline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 12px;
+    color: var(--hindu-muted);
+    font-family: 'Source Serif 4', serif;
+    padding-top: 10px;
+    border-top: 1px solid var(--hindu-light-rule);
+  }
+
+  .byline-row .author { color: var(--hindu-red); font-weight: 600; letter-spacing: 0.04em; }
+
+  /* ─── TWO-COLUMN BODY ─────────────────────────────── */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* Main text */
+  .article-body p {
+    font-size: 15.5px;
+    line-height: 1.78;
+    color: var(--hindu-ink);
+    margin-bottom: 16px;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .article-body p:first-of-type::first-letter {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    line-height: 0.82;
+    margin: 6px 10px -2px 0;
+    color: var(--hindu-red);
+    font-weight: 700;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--hindu-dark);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--hindu-light-rule);
+    letter-spacing: -0.1px;
+  }
+
+  .article-body h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--hindu-red);
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    margin: 28px 0;
+    padding: 18px 0 18px 0;
+    border-top: 3px solid var(--hindu-red);
+    border-bottom: 1px solid var(--hindu-light-rule);
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 21px !important;
+    line-height: 1.45 !important;
+    font-style: italic;
+    color: var(--hindu-dark) !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  .pull-quote p::first-letter { all: unset; }
+
+  .pull-quote cite {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--hindu-red);
+    margin-top: 8px;
+    font-style: normal;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  /* Inline stat highlight */
+  .stat-callout {
+    background: var(--hindu-red);
+    color: #fff;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .stat-callout .stat-number {
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-callout .stat-label {
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.92;
+    margin-top: 4px;
+    display: block;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  /* Table */
+  .data-table-wrap {
+    margin: 28px 0;
+    overflow-x: auto;
+  }
+
+  .data-table-wrap caption {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--hindu-red);
+    font-family: 'Source Serif 4', serif;
+    text-align: left;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .data-table thead tr {
+    background: var(--hindu-dark);
+    color: #fff;
+  }
+
+  .data-table th {
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  .data-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--hindu-light-rule);
+    color: var(--hindu-ink);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .data-table tr:nth-child(even) td { background: var(--sidebar-bg); }
+  .data-table tr:hover td { background: #e8e0d0; }
+
+  .data-table td:first-child { font-weight: 600; color: var(--hindu-red); }
+
+  /* Recommendations list */
+  .reco-list {
+    list-style: none;
+    margin: 16px 0 24px;
+    padding: 0;
+  }
+
+  .reco-list li {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--hindu-ink);
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .reco-list li .reco-num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--hindu-red);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    margin-top: 2px;
+  }
+
+  .reco-list li strong { color: var(--hindu-dark); font-style: italic; }
+
+  /* ─── SIDEBAR ─────────────────────────────────────── */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-box {
+    background: var(--sidebar-bg);
+    border-top: 3px solid var(--hindu-red);
+    padding: 16px 18px;
+  }
+
+  .sidebar-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--hindu-dark);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 13px;
+  }
+
+  .sidebar-box p, .sidebar-box li {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--hindu-muted);
+    font-family: 'Source Serif 4', serif;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar-box ul li::before {
+    content: '▸ ';
+    color: var(--hindu-red);
+    font-size: 11px;
+  }
+
+  .fact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--hindu-red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .fact-caption {
+    font-size: 12.5px !important;
+    color: var(--hindu-muted) !important;
+    font-style: italic;
+  }
+
+  .sidebar-divider {
+    border: none;
+    border-top: 1px solid var(--hindu-light-rule);
+    margin: 4px 0;
+  }
+
+  /* ─── CONCLUSION BOX ─────────────────────────────── */
+  .conclusion-box {
+    background: var(--hindu-dark);
+    color: #f5f0e8;
+    padding: 28px 32px;
+    margin: 36px 0 0;
+  }
+
+  .conclusion-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+  }
+
+  .conclusion-box h2::before { display: none; }
+
+  .conclusion-box p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #d4cfc4;
+    margin-bottom: 12px;
+    text-align: justify;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .conclusion-box .final-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #fff;
+    margin-top: 18px;
+    border-left: 3px solid var(--hindu-red);
+    padding-left: 14px;
+  }
+
+  /* ─── FOOTER RULE ────────────────────────────────── */
+  .article-footer {
+    border-top: 3px double var(--hindu-ink);
+    margin-top: 36px;
+    padding-top: 14px;
+    font-size: 12px;
+    color: var(--hindu-muted);
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+  }
+
+  /* ─── DECORATIVE RULE ─────────────────────────────── */
+  .ornamental-rule {
+    text-align: center;
+    color: var(--hindu-red);
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin: 10px 0 20px;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 720px) {
+    .body-layout { grid-template-columns: 1fr; }
+    h1.headline { font-size: 30px; }
+    .logo { font-size: 36px; }
+    .masthead-top { padding: 8px 16px; flex-direction: column; gap: 4px; text-align: center; }
+    .page-wrap { padding: 0 14px 40px; }
+    .nav-strip a { padding: 7px 10px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header">
+    <span class="kicker">Technology &amp; Society</span>
+    <h1 class="headline">Smartphones: A Useful Tool or a Modern Trap?</h1>
+    <p class="deck">Smartphones are indispensable tools, but unchecked habits can turn them into traps. The question is not whether to use the device — but who is using whom.</p>
+    <div class="byline-row">
+      <div><span class="author">Kunal Kumar</span></div>
+      <div>Updated: May 4, 2025 &nbsp;|&nbsp; 9 min read</div>
+    </div>
+  </header>
+
+  <div class="ornamental-rule">— ◆ —</div>
+
+  <!-- TWO-COLUMN BODY -->
+  <div class="body-layout">
+
+    <!-- MAIN ARTICLE -->
+    <article class="article-body">
+
+      <p>We have all felt this slide: staring into our screens at 2 AM, fingers scrolling for "just a moment" and suddenly losing hours. Smartphone addiction, as one columnist observed, "happens without you noticing, like a frog slowly boiling in a pot." Our devices are not inherently evil — they deliver instant social rewards and endless information. But the very promise of infinite possibilities can dull real-life experience and hijack our attention in ways we rarely pause to examine.</p>
+
+      <p>In fact, surveys now confirm what many parents and educators have long feared. A 2024 Pew Research Center survey found that <strong>38% of U.S. teenagers</strong> say they spend too much time on their smartphone. Half report arguments with parents over phone use, and 72% admit feeling relieved or peaceful when separated from their device — yet 44% feel anxious without it. These mixed feelings capture the tension of today's always-on culture with uncomfortable precision.</p>
+
+      <div class="pull-quote">
+        <p>"Our devices aren't inherently evil — but the very promise of infinite possibilities can dull real-life experience and hijack our attention."</p>
+        <cite>— Kunal Kumar</cite>
+      </div>
+
+      <p>A British writer confessed that his phone was "such a powerful drug that it gave me the illusion of infinite possibilities," until one day he replaced his iPhone with a simple flip phone and immediately regained control of his attention — feeling as if he had awoken from a decade-long sleep. His experience illustrates that change is possible even for the most deeply hooked among us.</p>
+
+      <h2>The Evidence: Use and Well-Being</h2>
+
+      <p>Large-scale studies confirm that high smartphone and screen use correlates with poorer mental health, though the causal relationships are complex. A 2024 CDC report on U.S. teenagers aged 12–17 found that 50% logged four or more hours of screen time per weekday. Among these heavy users, approximately 27% reported anxiety and 26% reported depression symptoms in the prior two weeks — compared to far lower rates among teens with moderate screen habits.</p>
+
+      <div class="stat-callout">
+        <span class="stat-number">11%</span>
+        <span class="stat-label">of adolescents across 44 countries showed <em>problematic social-media use</em> in 2022 — up from 7% in 2018. (WHO/HBSC Survey, 280,000 youth)</span>
+      </div>
+
+      <p>WHO Europe's 2024 report on Health Behaviour in School-aged Children surveyed approximately 280,000 young people across 44 countries. It found that problematic social-media use — characterised by inability to control time on social apps, withdrawal symptoms, and neglect of other activities — jumped from 7% in 2018 to 11% in 2022. A third of teens reported constant online contact with friends, and over 20% of gamers were at risk of gaming disorder. These figures underscore that many young people are straining under a digital diet that no longer nourishes but numbs.</p>
+
+      <p>Crucially, the link is not merely correlational. Pieh et al. (2025) conducted a randomised controlled trial in which Austrian university students were asked to reduce phone use to no more than two hours daily for three weeks. The result: measurably improved mood, better sleep quality, and lower stress and depression scores compared to the control group. Too much screen time, the evidence suggests, can actively cause worse mental health — not just co-occur with it.</p>
+
+      <!-- TABLE -->
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <caption>Table 1: Recent studies on smartphone use and youth well-being</caption>
+          <thead>
+            <tr>
+              <th>Study</th>
+              <th>Year</th>
+              <th>Sample</th>
+              <th>Key Finding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CDC / Zablotsky et al.</td>
+              <td>2024</td>
+              <td>US teens (12–17)</td>
+              <td>50% report ≥4h/day screen time; ~27% anxiety, ~26% depression among heavy users</td>
+            </tr>
+            <tr>
+              <td>Pieh et al. (RCT, BMC Med)</td>
+              <td>2025</td>
+              <td>Austrian university students (n=111)</td>
+              <td>3-week reduction to ≤2h/day improved depression, stress, sleep quality, and well-being</td>
+            </tr>
+            <tr>
+              <td>WHO/Europe (HBSC)</td>
+              <td>2024</td>
+              <td>278,000 adolescents, 44 countries</td>
+              <td>11% showed problematic social media use in 2022 vs 7% in 2018; 12% at risk for gaming disorder</td>
+            </tr>
+            <tr>
+              <td>Pew Research Center</td>
+              <td>2024</td>
+              <td>US teens &amp; parents (~1,450)</td>
+              <td>38% say they spend too much time on smartphones; 72% feel peaceful without phone; 44% feel anxious</td>
+            </tr>
+            <tr>
+              <td>Zhu et al. (Frontiers Psychiatry)</td>
+              <td>2025</td>
+              <td>Global literature review</td>
+              <td>Excessive smartphone use leads to loneliness, anxiety, depression; recommends self-control and reduced use</td>
+            </tr>
+            <tr>
+              <td>Malaeb et al.</td>
+              <td>2022</td>
+              <td>Lebanese young adults (n=461)</td>
+              <td>45–50% met "addiction" criteria; scores strongly linked to boredom proneness, anxiety and loneliness</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Science of the Scroll</h2>
+
+      <p>Why is the smartphone so hard to put down? Behavioural scientists note that phone apps and social media use tactics straight from the gambling playbook. Pull-to-refresh and infinite scrolling mirror slot machines: they deliver variable rewards that keep users checking for the next hit. Each new photograph or notification is unpredictable — will it be exciting or not? — and this very uncertainty is remarkably addictive. Tristan Harris, the former Google design ethicist, and others observe that design elements like auto-play and endless feeds train users to check their screens habitually and compulsively.</p>
+
+      <p>The physiological effect is real. Experts describe cycles of anticipation and reward on social media that can rewire neural pathways over time. People may even experience phantom vibrations — hearing a buzz from a phone that is not ringing — reflecting a conditioned craving for constant connectivity. This always-on dopamine economy leaves many anxious, distracted, or numbed when real life fails to provide the same instant gratification.</p>
+
+      <h2>But Wait: Is It Really the Phone?</h2>
+
+      <p>Critics wisely point out that a phone is just a tool, not the root problem. Michigan State University researchers argue that nothing about the device itself is inherently rewarding — rather, phones deliver rewards (social praise, gaming victories, news updates) that we find enticing. To use their analogy: one would not say a person has a "glass addiction" for drinking alcohol from a glass; the addiction is to the substance, not the conduit. This is worth noting. Taken seriously, we might more accurately speak of social-media addiction or gaming disorder, rather than smartphone addiction.</p>
+
+      <p>This nuance is valuable. Phones enable countless healthy activities — learning apps, keeping in touch with family, telehealth, productivity. Heavy-handed bans on all devices risk throwing out the baby with the bathwater. A balanced view acknowledges the genuine benefits of connectivity.</p>
+
+      <p>Still, even if the phone is merely a conduit, it is an exceptionally persuasive one. Phone designers — and especially app developers — have little economic incentive to make users spend less time on their platforms. The constant barrage of notifications, auto-playing content, and engagement-maximising algorithms turns an innocent device into a self-perpetuating trap. As WHO and others have warned, irresponsible design combined with inadequate digital education has created potentially damaging patterns of social-media use that can lead to depression and online bullying.</p>
+
+      <h2>Breaking Free: What Can Be Done</h2>
+
+      <p>The solution is not to discard smartphones but to reclaim agency over them. Both individuals and policymakers have essential roles to play.</p>
+
+      <ul class="reco-list">
+        <li>
+          <span class="reco-num">1</span>
+          <span><strong>Set personal limits and redesign your environment.</strong> Use built-in digital wellness tools to cap screen time or mute non-essential notifications. Charge your phone outside the bedroom; create phone-free times during family meals or evening walks. Even small steps — such as switching to greyscale or deleting one compulsive app — can significantly reduce a device's hold. As the RCT evidence confirms, even short breaks from screens can rapidly improve sleep and mood.</span>
+        </li>
+        <li>
+          <span class="reco-num">2</span>
+          <span><strong>Educate for digital literacy.</strong> Schools and parents should teach children <em>how</em> to use phones, not merely set prohibitions. WHO's report emphasises that many countries lack adequate digital literacy programmes, and the gap between youth technology use and formal education about it is growing. Curricula can include lessons on online well-being, the psychology of algorithms, and mindful media use.</span>
+        </li>
+        <li>
+          <span class="reco-num">3</span>
+          <span><strong>Advocate for healthier technology design.</strong> Policymakers can encourage — or mandate — design standards that protect users. Some countries already restrict smartphones in schools or limit gaming time for minors; similar measures could reduce passive overuse more broadly. Tech companies should be urged to adopt human-centred design: making it easy to switch off, eliminating addictive infinite scrolls, and providing honest screen-time reminders.</span>
+        </li>
+        <li>
+          <span class="reco-num">4</span>
+          <span><strong>Establish family and social norms.</strong> Parents and friends can model good behaviour. It is telling that 46% of teens say their parents are often distracted by their own phones during conversation. Families can institute mutual pacts — a dinner-table rule, a weekly device-free outing. Normalising real presence over constant texting will gradually reshape expectations across generations.</span>
+        </li>
+      </ul>
+
+      <!-- CONCLUSION BOX -->
+      <div class="conclusion-box">
+        <h2>Conclusion: Own Your Device — Don't Be Owned By It</h2>
+        <p>Smartphones will only become more entwined with daily life. The challenge is not to quit devices cold turkey, but to use them consciously — as servants of our goals, not masters of our time. We must demand that our tools respect us: developers should build more ethical, less exploitative applications, and regulators should take seriously their duty to protect users' mental health.</p>
+        <p>Let us apply a simple test: the next time you reach for your phone, ask <em>why</em>. Are you looking up a needed fact, or reflexively scratching an itch of boredom? Are you connecting with a loved one, or numbing an uncomfortable feeling? By remaining mindful, we can clutch the phone for its genuine benefits — without allowing it to clutch us in return.</p>
+        <p class="final-line">The choice is ours. Let us make it deliberately, before the screen makes it for us.</p>
+      </div>
+
+      <footer class="article-footer">
+        Sources: All statistics and claims are drawn from peer-reviewed studies, government reports, and major surveys cited throughout, including the CDC (2024), WHO Europe HBSC Survey (2024), Pew Research Center (2024), Pieh et al. BMC Medicine (2025), and Zhu et al. Frontiers in Psychiatry (2025).
+      </footer>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h3>Key Facts at a Glance</h3>
+        <span class="fact-num">38%</span>
+        <p class="fact-caption">of U.S. teens say they spend too much time on their smartphone. <em>— Pew, 2024</em></p>
+        <hr class="sidebar-divider">
+        <span class="fact-num">50%</span>
+        <p class="fact-caption">of U.S. teens aged 12–17 log 4+ hours of screen time on weekdays. <em>— CDC, 2024</em></p>
+        <hr class="sidebar-divider">
+        <span class="fact-num">72%</span>
+        <p class="fact-caption">of teens feel relieved or peaceful when away from their phone — yet 44% feel anxious without it.</p>
+        <hr class="sidebar-divider">
+        <span class="fact-num">280K</span>
+        <p class="fact-caption">youth surveyed across 44 countries in the WHO/HBSC study on adolescent screen habits.</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>Quick Tips: Take Back Control</h3>
+        <ul>
+          <li>Set a screen-time cap using your phone's built-in wellness tools</li>
+          <li>Charge your phone outside the bedroom at night</li>
+          <li>Declare mealtimes phone-free in your household</li>
+          <li>Delete the one app you open most mindlessly</li>
+          <li>Switch to greyscale display to reduce visual appeal</li>
+          <li>Schedule a daily one-hour no-phone window</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>Design vs. User</h3>
+        <p>Apps use tactics from the gambling industry — variable rewards, infinite scroll, auto-play — to maximise engagement. <strong>Pull-to-refresh</strong> mimics a slot machine lever.</p>
+        <p>Former Google ethicist Tristan Harris has warned that persuasive technology trains habitual checking with no regard for user well-being.</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>Related Reading</h3>
+        <ul>
+          <li>CDC Data Brief No. 513 — Screen Time and Teen Mental Health (Oct 2024)</li>
+          <li>WHO Europe — Teens, Screens and Mental Health (Sep 2024)</li>
+          <li>Pew Research — How Teens &amp; Parents Approach Screen Time (Mar 2024)</li>
+          <li>Pieh et al. — RCT: Screen Reduction Improves Mental Health (2025)</li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+
+
+</body>
+</html>
